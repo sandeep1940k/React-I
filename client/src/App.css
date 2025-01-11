@@ -1,0 +1,12 @@
+html, body {
+  height: 100%;
+  background: linear-gradient(to top, blue, white);
+}
+
+.blue-radio:checked {
+  accent-color: blue;
+}
+
+.black-radio:checked {
+  accent-color: black;
+}
