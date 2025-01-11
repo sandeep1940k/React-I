@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export default function Navbar({title = 'Title'}) {
+export default function Navbar({ title = 'Title', mode = 'light' , toggleMode}) {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className={`navbar navbar-expand-lg navbar-${mode} bg-${mode}`}>
       <div className="container-fluid">
         <a className="navbar-brand" href="/">{title}</a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,13 +15,17 @@ export default function Navbar({title = 'Title'}) {
               <a className="nav-link active" aria-current="page" href="/">Home</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/">Link</a>
+              <a className="nav-link" aria-current="page" href="/">About</a>
             </li>
           </ul>
-          <form className="d-flex" role="search">
+          {/* <form className="d-flex" role="search">
             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
             <button className="btn btn-outline-success" type="submit">Search</button>
-          </form>
+          </form> */}
+          <div className={`form-check form-switch text-${mode === 'light' ? 'dark' : 'light'}`}>
+            <input className="form-check-input" type="checkbox" role="switch" id="mode" onClick={toggleMode}/>
+              <label className="form-check-label" htmlFor="mode">Mode</label>
+          </div>
         </div>
       </div>
     </nav>
